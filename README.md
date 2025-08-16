@@ -37,6 +37,39 @@ This is the standard luminance formula that gives the most accurate grayscale re
 
 4. **Open your browser** and navigate to `http://localhost:3000` to experience Grayify!
 
+## Deployment
+
+### Deploy to Vercel (Recommended)
+
+1. **Push to GitHub**:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit: Grayify image converter"
+   git branch -M main
+   git remote add origin https://github.com/YOUR_USERNAME/grayify.git
+   git push -u origin main
+   ```
+
+2. **Deploy to Vercel**:
+   - Go to [vercel.com](https://vercel.com)
+   - Sign up/Login with your GitHub account
+   - Click "New Project"
+   - Import your GitHub repository
+   - Vercel will automatically detect it's a React app
+   - Click "Deploy"
+
+3. **Your app will be live** at `https://grayify.vercel.app` (or similar URL)
+
+### Manual Deployment
+
+For other platforms, build the project:
+```bash
+npm run build
+```
+
+The `build` folder contains your production-ready app.
+
 ## Usage
 
 1. **Upload an Image**:
