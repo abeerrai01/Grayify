@@ -1,0 +1,289 @@
+/* Additional styles for App component */
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Enhanced animations for feature cards */
+.feature-card {
+  animation: slideInUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Progress bar animation */
+.loading {
+  position: relative;
+}
+
+.loading::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  border-radius: 2px;
+  animation: progressBar 2s ease-in-out infinite;
+}
+
+@keyframes progressBar {
+  0% {
+    transform: translateX(-50%) translateX(-100%);
+  }
+  100% {
+    transform: translateX(-50%) translateX(100%);
+  }
+}
+
+/* Enhanced button animations */
+.download-btn, .reset-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.download-btn::after, .reset-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.download-btn:active::after, .reset-btn:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Floating particles effect */
+.container::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 100px 100px, 150px 150px, 200px 200px;
+  animation: floatParticles 20s linear infinite;
+}
+
+@keyframes floatParticles {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+/* Enhanced image card hover effects */
+.image-card {
+  position: relative;
+}
+
+.image-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.image-card:hover::after {
+  opacity: 1;
+}
+
+/* Enhanced upload area effects */
+.upload-area {
+  position: relative;
+}
+
+.upload-area::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #667eea, #764ba2, #23a6d5, #23d5ab, #667eea);
+  border-radius: 22px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.upload-area:hover::after {
+  opacity: 1;
+}
+
+/* Enhanced title effects */
+.app-title {
+  position: relative;
+}
+
+.app-title::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -100px;
+  right: -100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: translateY(-50%);
+  animation: titleLine 3s ease-in-out infinite;
+}
+
+@keyframes titleLine {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(-50%) scaleX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50%) scaleX(1);
+  }
+}
+
+/* Enhanced loading spinner */
+.loading::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-left: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Enhanced error animation */
+.error {
+  animation: shake 0.5s ease-in-out, glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+  }
+  to {
+    box-shadow: 0 5px 25px rgba(255, 107, 107, 0.6);
+  }
+}
+
+/* Enhanced responsive design */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .feature-card {
+    padding: 1rem;
+  }
+  
+  .feature-icon {
+    font-size: 2rem;
+  }
+  
+  .feature-title {
+    font-size: 1rem;
+  }
+  
+  .feature-desc {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .app-title::before {
+    left: -50px;
+    right: -50px;
+  }
+  
+  .container::after {
+    background-size: 50px 50px, 75px 75px, 100px 100px;
+  }
+}
+
+/* Enhanced accessibility */
+.download-btn:focus,
+.reset-btn:focus,
+.upload-area:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 3px;
+}
+
+/* Enhanced performance optimizations */
+.image-display {
+  will-change: transform;
+}
+
+.upload-area,
+.image-card,
+.download-btn,
+.reset-btn {
+  will-change: transform;
+}
+
+/* Enhanced smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced selection styling */
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: white;
+}
